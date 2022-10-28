@@ -2,11 +2,12 @@ import React, { useState, useEffect } from 'react';
 
 import Light from './light.jsx';
 
-const LightHolder = ({cycle}) => {
+const LightHolder = ({cycle, purple}) => {
 
     const [litLight, setLitLight] = useState(null);
 
     const colors = ['red', '#ff9933', 'green'];
+    const additionalColor = 'purple';
 
     const styles = {
         backgroundColor: "black",
@@ -23,6 +24,12 @@ const LightHolder = ({cycle}) => {
         }
 
     });
+
+    // Used to include purple in light cycle
+    useEffect(() => {
+        if (purple) colors.push(additionalColor);
+        return () => colors.pop();
+    });
     
     function cycleLights() {
         let colorIdx = litLight ? colors.indexOf(litLight) : colors.length - 1;
@@ -35,7 +42,7 @@ const LightHolder = ({cycle}) => {
 			<Light color={colors[0]} setLitLight={setLitLight} litLight={litLight} />
 			<Light color={colors[1]} setLitLight={setLitLight} litLight={litLight} />
 			<Light color={colors[2]} setLitLight={setLitLight} litLight={litLight} />
-            {/* {purple ? <Light color='purple' setLitLight={setLitLight} litLight={litLight} /> : null} */}
+            {purple ? <Light color={additionalColor} setLitLight={setLitLight} litLight={litLight} /> : null}
 		</div>
     );
 };

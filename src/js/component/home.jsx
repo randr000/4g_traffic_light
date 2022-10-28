@@ -24,7 +24,7 @@ const Home = () => {
 				</div>
 				<div>
 					<LightHanger />
-					<LightHolder cycle={cycle} />
+					<LightHolder cycle={cycle} purple={purple}/>
 				</div>
 			</div>
 		</>
