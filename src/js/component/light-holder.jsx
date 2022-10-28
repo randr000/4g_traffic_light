@@ -35,6 +35,7 @@ const LightHolder = ({cycle}) => {
 			<Light color={colors[0]} setLitLight={setLitLight} litLight={litLight} />
 			<Light color={colors[1]} setLitLight={setLitLight} litLight={litLight} />
 			<Light color={colors[2]} setLitLight={setLitLight} litLight={litLight} />
+            {/* {purple ? <Light color='purple' setLitLight={setLitLight} litLight={litLight} /> : null} */}
 		</div>
     );
 };

@@ -7,16 +7,21 @@ import rigoImage from "../../img/rigo-baby.jpg";
 import LightHolder from './light-holder.jsx';
 import LightHanger from './light-hanger.jsx';
 import CycleButton from './cycle-button.jsx';
+import PurpleButton from './purple-button.jsx';
 
 //create your first component
 const Home = () => {
 
 	const [cycle, setCycle] = useState(false);
+	const [purple, setPurple] = useState(false);
 
 	return (
 		<>
 			<div className="d-flex justify-content-around align-items-center">
-				<CycleButton cycle={cycle} setCycle={setCycle} />
+				<div className="d-flex flex-column">
+					<CycleButton cycle={cycle} setCycle={setCycle} />
+					<PurpleButton purple={purple} setPurple={setPurple} />
+				</div>
 				<div>
 					<LightHanger />
 					<LightHolder cycle={cycle} />
